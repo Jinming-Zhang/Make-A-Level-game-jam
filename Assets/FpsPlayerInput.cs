@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class FpsPlayerInput : MonoBehaviour
 {
-    public InputAction movement;
+/*    public InputAction movement;
     public InputAction turning;
 
     CharacterController controller;
@@ -68,5 +68,5 @@ public class FpsPlayerInput : MonoBehaviour
 
         cam.transform.localRotation = Quaternion.Euler(camRot, 0, 0);
         transform.Rotate(Vector3.up * mouseX);
-    }
+    }*/
 }
