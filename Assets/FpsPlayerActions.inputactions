@@ -1,0 +1,44 @@
+{
+    "name": "FpsPlayerActions",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "4cf02416-131c-4b85-a7d5-5ffb4d54da82",
+            "actions": [
+                {
+                    "name": "look",
+                    "type": "Value",
+                    "id": "dd59ed35-a452-4184-9661-46e7d30acb2d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e7f1a50f-9dd5-4c67-8c3e-241a90092c4f",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcf62ecc-8e5a-4063-bb3e-7180204d2115",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
