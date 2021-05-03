@@ -9,7 +9,15 @@ public class PlayerController : MonoBehaviour
 {
     [ReadOnly]
     public Vector3 rawInputMovement;
+    public float speed;
+    public LayerMask mask;
+    public float distance;
+    public float JumpDistance;
     private Rigidbody rb;
+    public GameObject left;
+    public GameObject rigt;
+    public GameObject up;
+    public GameObject down;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +27,39 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(-rawInputMovement);
+        rb.AddForce(rawInputMovement * speed * Time.deltaTime);
+        if(rawInputMovement.x > 0)
+        {
+            left.SetActive(true);
+            rigt.SetActive(false);
+        }
+        else if (rawInputMovement.x != 0)
+        {
+            left.SetActive(false);
+            rigt.SetActive(true);
+        }
+        else
+        {
+            left.SetActive(false);
+            rigt.SetActive(false);
+        }
+
+
+        if (rawInputMovement.y > 0)
+        {
+            down.SetActive(true);
+            up.SetActive(false);
+        }
+        else if(rawInputMovement.y != 0)
+        {
+            down.SetActive(false);
+            up.SetActive(true);
+        }
+        else
+        {
+            down.SetActive(false);
+            up.SetActive(false);
+        }
     }
     public void onMovement(InputAction.CallbackContext value)
     {
@@ -31,6 +71,15 @@ public class PlayerController : MonoBehaviour
         if(value.started)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+    public void onJump(InputAction.CallbackContext value)
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, distance, mask))
+        {
+            rb.AddExplosionForce(JumpDistance, hit.point, 10f);
+            Debug.Log("jump");
+
         }
     }
 }
