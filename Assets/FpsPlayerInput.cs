@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class FpsPlayerInput : MonoBehaviour
 {
-/*    public InputAction movement;
+/*   public InputAction movement;
     public InputAction turning;
 
     CharacterController controller;
