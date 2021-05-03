@@ -9716,7 +9716,7 @@ GameObject:
   - component: {fileID: 406939870}
   - component: {fileID: 406939869}
   - component: {fileID: 406939868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9756,7 +9756,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: cef8c00e27e277b4e8af50de6709a403, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13833,7 +13833,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657601435}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14103,7 +14103,7 @@ Transform:
   - {fileID: 1480232471}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &661971038
 GameObject:
   m_ObjectHideFlags: 0
@@ -27855,6 +27855,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawInputMovement: {x: 0, y: 0, z: 0}
   speed: 200
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
+  distance: 1.1
+  JumpDistance: 20
   left: {fileID: 1563622317}
   rigt: {fileID: 373027458}
   up: {fileID: 1135245749}
@@ -27998,6 +28003,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c548f2e4-b578-4de1-886d-da3ecd6cf309
     m_ActionName: PlayerControlls/reset[/Keyboard/r,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1455877824}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: onJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3ac9ec9e-e685-4d8f-98d7-9741cb292010
+    m_ActionName: PlayerControlls/jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControlls
