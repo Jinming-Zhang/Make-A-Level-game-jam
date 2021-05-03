@@ -10,13 +10,14 @@ public class PlayerController : MonoBehaviour
     [ReadOnly]
     public Vector3 rawInputMovement;
     public float speed;
-    public LayerMask mask;
-    public float distance;
-    public float JumpDistance;
     private Rigidbody rb;
+    [Foldout("particles")]
     public GameObject left;
+    [Foldout("particles")]
     public GameObject right;
+    [Foldout("particles")]
     public GameObject up;
+    [Foldout("particles")]
     public GameObject down;
     public bool IsInverted;
     // Start is called before the first frame update
@@ -111,15 +112,6 @@ public class PlayerController : MonoBehaviour
         if(value.started)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-    public void onJump(InputAction.CallbackContext value)
-    {
-        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, distance, mask))
-        {
-            rb.AddExplosionForce(JumpDistance, hit.point, 10f);
-            Debug.Log("jump");
-
         }
     }
 }
