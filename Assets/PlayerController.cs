@@ -15,9 +15,10 @@ public class PlayerController : MonoBehaviour
     public float JumpDistance;
     private Rigidbody rb;
     public GameObject left;
-    public GameObject rigt;
+    public GameObject right;
     public GameObject up;
     public GameObject down;
+    public bool IsInverted;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,38 +28,77 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(rawInputMovement * speed * Time.deltaTime);
-        if(rawInputMovement.x > 0)
+        if(!IsInverted)
         {
-            left.SetActive(true);
-            rigt.SetActive(false);
-        }
-        else if (rawInputMovement.x != 0)
-        {
-            left.SetActive(false);
-            rigt.SetActive(true);
+            rb.AddForce(rawInputMovement * speed * Time.deltaTime);
+            if (rawInputMovement.x > 0)
+            {
+                left.SetActive(true);
+                right.SetActive(false);
+            }
+            else if (rawInputMovement.x != 0)
+            {
+                left.SetActive(false);
+                right.SetActive(true);
+            }
+            else
+            {
+                left.SetActive(false);
+                right.SetActive(false);
+            }
+
+
+            if (rawInputMovement.y > 0)
+            {
+                down.SetActive(true);
+                up.SetActive(false);
+            }
+            else if (rawInputMovement.y != 0)
+            {
+                down.SetActive(false);
+                up.SetActive(true);
+            }
+            else
+            {
+                down.SetActive(false);
+                up.SetActive(false);
+            }
         }
         else
         {
-            left.SetActive(false);
-            rigt.SetActive(false);
-        }
+            rb.AddForce(-rawInputMovement * speed * Time.deltaTime);
+            if (rawInputMovement.x > 0)
+            {
+                right.SetActive(true);
+                left.SetActive(false);
+            }
+            else if (rawInputMovement.x != 0)
+            {
+                right.SetActive(false);
+                left.SetActive(true);
+            }
+            else
+            {
+                right.SetActive(false);
+                left.SetActive(false);
+            }
 
 
-        if (rawInputMovement.y > 0)
-        {
-            down.SetActive(true);
-            up.SetActive(false);
-        }
-        else if(rawInputMovement.y != 0)
-        {
-            down.SetActive(false);
-            up.SetActive(true);
-        }
-        else
-        {
-            down.SetActive(false);
-            up.SetActive(false);
+            if (rawInputMovement.y > 0)
+            {
+                up.SetActive(true);
+                down.SetActive(false);
+            }
+            else if (rawInputMovement.y != 0)
+            {
+                up.SetActive(false);
+                down.SetActive(true);
+            }
+            else
+            {
+                up.SetActive(false);
+                down.SetActive(false);
+            }
         }
     }
     public void onMovement(InputAction.CallbackContext value)
