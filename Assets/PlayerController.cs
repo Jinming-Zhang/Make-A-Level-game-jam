@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
                 right.SetActive(false);
             }
 
-
             if (rawInputMovement.y > 0)
             {
                 down.SetActive(true);
