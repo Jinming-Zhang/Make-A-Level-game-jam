@@ -19,6 +19,12 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
         Debug.Log("QUIT!");
     }
+    
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1f;
+        StartCoroutine(LoadLevel(0));
+    }
 
     IEnumerator LoadLevel(int indexBuild)
     {
