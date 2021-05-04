@@ -5,6 +5,8 @@ using NaughtyAttributes;
 using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
+    [ReadOnly]
+    public float velocitySum;
     [Layer]
     public int instantKillLayer;
     [Scene]
@@ -17,10 +19,14 @@ public class Health : MonoBehaviour
     {
         health -= 10;
     }
+    [Range(1,10)]
+    public float velocityMultiplyer;
+    Rigidbody rb;
 
     private void Start()
     {
         health = maxHealt;
+        rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -31,10 +37,13 @@ public class Health : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.gameObject.layer + " " + killLayer);
+        Vector3 velocity = rb.velocity;
+        velocitySum = velocity.x + velocity.y + velocity.z;
         if (collision.gameObject.layer == instantKillLayer)
         {
             health = 0;
+            return;
         }
+        health -= Mathf.Abs(velocitySum * 2);
     }
 }
