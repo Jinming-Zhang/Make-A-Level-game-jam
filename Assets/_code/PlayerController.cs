@@ -20,16 +20,22 @@ public class PlayerController : MonoBehaviour
     [Foldout("particles")]
     public GameObject down;
     public bool IsInverted;
+    AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!IsInverted)
+        if (rawInputMovement != Vector3.zero)
+        {
+            audioManager.Play("air");
+        }
+        if (!IsInverted)
         {
             rb.AddForce(rawInputMovement * speed * Time.deltaTime);
             if (rawInputMovement.x > 0)
