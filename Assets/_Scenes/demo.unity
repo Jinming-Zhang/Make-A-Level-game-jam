@@ -4706,7 +4706,7 @@ GameObject:
   - component: {fileID: 373027461}
   - component: {fileID: 373027460}
   - component: {fileID: 373027459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9716,7 +9716,8 @@ GameObject:
   - component: {fileID: 406939870}
   - component: {fileID: 406939869}
   - component: {fileID: 406939868}
-  m_Layer: 6
+  - component: {fileID: 406939872}
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9793,13 +9794,25 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406939867}
-  m_LocalRotation: {x: 0, y: 0, z: -0.70739675, w: 0.70681673}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -4.17, y: -6.4817076, z: 7.92}
   m_LocalScale: {x: 1, y: 20.304228, z: 1}
   m_Children: []
   m_Father: {fileID: 471053333}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.047}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &406939872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406939867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ce1239da3547c41b6ab2130ebf3632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &420873561
 GameObject:
   m_ObjectHideFlags: 0
@@ -18272,7 +18285,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 119
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -20126,7 +20139,7 @@ GameObject:
   - component: {fileID: 1135245750}
   - component: {fileID: 1135245752}
   - component: {fileID: 1135245751}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25505,7 +25518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180390031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2073717, y: 5.5182924, z: 7.8954554}
+  m_LocalPosition: {x: -3.2073717, y: 5.9, z: 7.8954554}
   m_LocalScale: {x: 1, y: 18.631817, z: 1}
   m_Children: []
   m_Father: {fileID: 471053333}
@@ -26105,7 +26118,7 @@ GameObject:
   - component: {fileID: 1221381346}
   - component: {fileID: 1221381345}
   - component: {fileID: 1221381344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26145,7 +26158,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: cef8c00e27e277b4e8af50de6709a403, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27848,12 +27861,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1455877828}
   - component: {fileID: 1455877824}
+  - component: {fileID: 1455877831}
   - component: {fileID: 1455877827}
   - component: {fileID: 1455877826}
   - component: {fileID: 1455877825}
   - component: {fileID: 1455877829}
   - component: {fileID: 1455877830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27886,7 +27900,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455877823}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f22515ad943237d4091f3dbf3d192bbd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -28055,6 +28069,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1455877831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455877823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedb6901c3432a74b8db95798ee285cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantKillLayer: 8
+  LoadOnDieScene: 1
+  maxHealt: 100
+  health: -20
 --- !u!1 &1463420888
 GameObject:
   m_ObjectHideFlags: 0
@@ -29251,14 +29281,14 @@ MonoBehaviour:
   sounds:
   - name: air
     Clip: {fileID: 8300000, guid: e6dd3b75c8240bb468d33dd788dbb0ba, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     spatialBlend: 0
     loop: 0
     source: {fileID: 0}
   - name: impact
     Clip: {fileID: 8300000, guid: b83a461b35215cb40963b987af11281b, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     spatialBlend: 0
     loop: 0
@@ -29288,7 +29318,7 @@ GameObject:
   - component: {fileID: 1563622318}
   - component: {fileID: 1563622320}
   - component: {fileID: 1563622319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39438,7 +39468,7 @@ GameObject:
   - component: {fileID: 1964876125}
   - component: {fileID: 1964876127}
   - component: {fileID: 1964876126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
