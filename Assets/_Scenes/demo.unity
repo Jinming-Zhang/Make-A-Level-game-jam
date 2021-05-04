@@ -28085,7 +28085,7 @@ MonoBehaviour:
   instantKillLayer: 8
   LoadOnDieScene: 0
   maxHealt: 100
-  health: -20
+  health: 100
   velocityMultiplyer: 1
 --- !u!1 &1463420888
 GameObject:

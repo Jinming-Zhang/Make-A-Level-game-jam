@@ -14,12 +14,22 @@ public class Health : MonoBehaviour
     public float maxHealt;
     [ProgressBar("Health", "maxHealt", EColor.Red)]
     public float health = 100;
-    [Button("Damage")] // Specify button text
-    private void Damage() 
+    [Button("Damage 10")] // Specify button text
+    public void Damage() 
     {
         health -= 10;
     }
-    [Range(1,10)]
+    [Button("Heal 10")] // Specify button text
+    public void heal()
+    {
+        health += 10;
+    }
+    [Button("Kill")] // Specify button text
+    public void Kill()
+    {
+        health = 0;
+    }
+    [Range(0,10)]
     public float velocityMultiplyer;
     Rigidbody rb;
 
