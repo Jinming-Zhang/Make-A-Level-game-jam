@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 public class HudScreen : MonoBehaviour
 {
     public static HudScreen Instance;
@@ -18,6 +20,12 @@ public class HudScreen : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        InitializeUIComponents();
+    }
+
+    private void InitializeUIComponents()
+    {
+        coinText.text = $"Coins: {0}";
     }
 
     public void UpdateCoin(int amt)

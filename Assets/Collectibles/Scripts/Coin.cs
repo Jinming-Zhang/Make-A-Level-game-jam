@@ -8,7 +8,7 @@ public class Coin : Collectible
     public override void OnPlayerEntered(Collision collision)
     {
         Debug.Log("Player has hit a coin!");
-        Director.Instance.playerInventory.CoinOwned++;
+        Director.Instance.GainCoin(1);
         Destroy(gameObject);
     }
     private void Update()

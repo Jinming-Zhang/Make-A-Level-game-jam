@@ -5,7 +5,7 @@ using UnityEngine;
 public class Director : MonoBehaviour
 {
     public static Director Instance;
-    public PlayerInventory playerInventory = new PlayerInventory();
+    private PlayerInventory playerInventory = new PlayerInventory();
     private void Awake()
     {
         if(Instance && Instance != this)
@@ -18,15 +18,8 @@ public class Director : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
-    // Start is called before the first frame update
-    void Start()
+    public void GainCoin(int amt)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerInventory.GainCoin(amt);
     }
 }
