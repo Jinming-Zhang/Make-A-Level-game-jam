@@ -5,8 +5,9 @@ using NaughtyAttributes;
 
 public class Objectives : MonoBehaviour
 {
-    public List<Phase> objectives;
+    public List<GameObject> objectives;
     public float viewTime;
+    public float aditionalWait;
     CameraFollowV2 cfv;
     private bool done;
     private bool objectiveDone;
@@ -26,23 +27,17 @@ public class Objectives : MonoBehaviour
     {
         if (done)
         {
-            Debug.Log("done");
+            Debug.Log("start timer");
             done = false;
         }
     }
     private IEnumerator DoPhase(int index)
     {
-        Phase _phase = objectives[index];
-        if (_phase.isWait == false)
-        {
-            StartCoroutine(view(_phase.Objective.transform));
-            _phase.Objective.GetComponent<FixScript>();
-        }
-        else
-        {
-            yield return new WaitForSeconds(_phase.time);
-            done = true;
-        }
+        GameObject _phase = objectives[index];
+        StartCoroutine(view(_phase.transform));
+        _phase.GetComponent<FixScript>();
+        yield return new WaitForSeconds(viewTime + aditionalWait);
+        done = true;
     }
     private IEnumerator view(Transform input)
     {

@@ -23,7 +23,6 @@ public class geyser : MonoBehaviour
         {
             if(hit.transform.gameObject.layer ==playerLayer)
             {
-                Debug.Log(hit);
                 Rigidbody rb = hit.transform.gameObject.GetComponent<Rigidbody>();
                 rb.AddExplosionForce(force, from.position, distance);
             }

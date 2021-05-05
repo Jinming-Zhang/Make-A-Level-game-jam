@@ -7366,10 +7366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectives:
-  - isWait: 0
-    time: 3
-    Objective: {fileID: 681560779}
+  - {fileID: 681560779}
   viewTime: 5
+  aditionalWait: 0
 --- !u!114 &985500442
 MonoBehaviour:
   m_ObjectHideFlags: 0
