@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public abstract class Collectible : MonoBehaviour
 {
-    [SerializeField] private PlayerInventory.CollectibleItem itemType;
+    [SerializeField] protected PlayerInventory.CollectibleItem itemType;
 
     private void OnCollisionEnter(Collision collision)
     {

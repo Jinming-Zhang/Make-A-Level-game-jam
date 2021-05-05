@@ -12,31 +12,31 @@ public class PlayerInventory
 
     public int CoinOwned = 0;
     public int GearOwned = 0;
+
+    private Dictionary<CollectibleItem, int> Inventory = new Dictionary<CollectibleItem, int>();
     public void GainItem(CollectibleItem itemType, int amt)
     {
-        switch(itemType)
+        if(Inventory.ContainsKey(itemType))
         {
-            case CollectibleItem.Coin:
-                GainCoin(amt);
-                break;
-            case CollectibleItem.Gear:
-                GainGear(amt);
-                break;
-            default:
-                break;
+            Inventory[itemType] = Mathf.Max(0, Inventory[itemType] + amt);
+            UpdateUI();
+        }
+        else
+        {
+            Inventory.Add(itemType, 1);
         }
     }
 
-    private void GainCoin(int amt)
+    public int CheckItem(CollectibleItem itemType)
     {
-        CoinOwned = Mathf.Max(0, CoinOwned + amt);
-        UpdateUI();
-    }
-
-    private void GainGear(int amt)
-    {
-        GearOwned = Mathf.Max(0, GearOwned + amt);
-        UpdateUI();
+        if(Inventory.ContainsKey(itemType))
+        {
+            return Inventory[itemType];
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public void UpdateUI()
