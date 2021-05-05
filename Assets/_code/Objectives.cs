@@ -9,14 +9,11 @@ public class Objectives : MonoBehaviour
     public float viewTime;
     CameraFollowV2 cfv;
     private bool done;
+    private bool objectiveDone;
     [Button("test")] // Specify button text
     public void MethodTwo() 
     {
         StartCoroutine(DoPhase(0));
-        if (done)
-        {
-            Debug.Log("done");
-        }
     }
     // Start is called before the first frame update
     void Start()
@@ -27,7 +24,11 @@ public class Objectives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (done)
+        {
+            Debug.Log("done");
+            done = false;
+        }
     }
     private IEnumerator DoPhase(int index)
     {
@@ -35,11 +36,10 @@ public class Objectives : MonoBehaviour
         if (_phase.isWait == false)
         {
             StartCoroutine(view(_phase.Objective.transform));
-            done = true;
+            _phase.Objective.GetComponent<FixScript>();
         }
         else
         {
-            Debug.Log(_phase.time);
             yield return new WaitForSeconds(_phase.time);
             done = true;
         }
