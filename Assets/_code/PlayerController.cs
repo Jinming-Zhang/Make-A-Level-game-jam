@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public GameObject down;
     public bool IsInverted;
     AudioManager audioManager;
-    public Objectives objectives;
     // Start is called before the first frame update
     void Start()
     {
@@ -118,13 +117,6 @@ public class PlayerController : MonoBehaviour
         if(value.started)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-    public void onAdd(InputAction.CallbackContext value)
-    {
-        if (value.started)
-        {
-            objectives.MethodTwo();
         }
     }
 }

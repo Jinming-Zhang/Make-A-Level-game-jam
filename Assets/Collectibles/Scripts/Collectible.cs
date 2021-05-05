@@ -7,7 +7,7 @@ public abstract class Collectible : MonoBehaviour
 {
     [SerializeField] protected PlayerInventory.CollectibleItem itemType;
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
@@ -15,8 +15,16 @@ public abstract class Collectible : MonoBehaviour
             OnItemCollected();
             Destroy(gameObject);
         }
+    }*/
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Director.Instance.GainItem(itemType, 1);
+            OnItemCollected();
+            Destroy(gameObject);
+        }
     }
-
     protected virtual void OnItemCollected()
     {
     }
