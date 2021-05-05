@@ -18,8 +18,8 @@ public class Director : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
-    public void GainCoin(int amt)
+    public void GainItem(PlayerInventory.CollectibleItem itemType, int amt)
     {
-        playerInventory.GainCoin(amt);
+        playerInventory.GainItem(itemType, amt);
     }
 }
