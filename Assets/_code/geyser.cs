@@ -7,27 +7,25 @@ public class geyser : MonoBehaviour
 {
     public Transform from;
     public Transform to;
+    public GameObject air;
     public float force;
     [Layer]
     public int playerLayer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
     {
         from.LookAt(to.position);
-        Debug.DrawRay(from.position, from.forward, Color.green);
-        if(Physics.Raycast(from.position, from.forward, out RaycastHit hit, Vector3.Distance(from.position, to.position)))
+        float distance = Vector3.Distance(from.position, to.position);
+        air.transform.localScale = new Vector3(1, 1, distance/2);
+        if(Physics.Raycast(from.position, from.forward, out RaycastHit hit, distance))
         {
             if(hit.transform.gameObject.layer ==playerLayer)
             {
                 Debug.Log(hit);
                 Rigidbody rb = hit.transform.gameObject.GetComponent<Rigidbody>();
-                rb.AddExplosionForce(force, from.position, Vector3.Distance(from.position, to.position));
+                rb.AddExplosionForce(force, from.position, distance);
             }
         }
     }
