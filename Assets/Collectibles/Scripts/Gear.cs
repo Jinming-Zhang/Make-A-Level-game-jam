@@ -8,5 +8,6 @@ public class Gear : Collectible
     {
         base.OnItemCollected();
         Debug.Log($"Player collcted a gear, player has {Director.Instance.CheckItem(this.itemType)} gears now!");
+        Destroy(transform.parent.gameObject);
     }
 }
