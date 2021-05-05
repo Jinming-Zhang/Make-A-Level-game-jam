@@ -19,10 +19,6 @@ public class FixScript : MonoBehaviour
         isActivated = true;
         screen.SetActive(true);
     }
-    private void Update()
-    {
-        
-    }
     public void onFix(InputAction.CallbackContext value)
     {
         if(isActivated)
