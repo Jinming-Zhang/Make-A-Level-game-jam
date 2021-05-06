@@ -15069,7 +15069,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1455877824}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: onJump
+        m_MethodName: onPlayerStop
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

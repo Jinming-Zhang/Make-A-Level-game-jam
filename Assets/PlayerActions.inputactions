@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "jump",
+                    "name": "stop",
                     "type": "Button",
                     "id": "3ac9ec9e-e685-4d8f-98d7-9741cb292010",
                     "expectedControlType": "Button",
@@ -189,7 +189,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "jump",
+                    "action": "stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -200,7 +200,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "jump",
+                    "action": "stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

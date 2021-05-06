@@ -119,4 +119,11 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+    public void onPlayerStop(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            rb.AddForce(rb.velocity * -1 * 30);
+        }
+    }
 }
