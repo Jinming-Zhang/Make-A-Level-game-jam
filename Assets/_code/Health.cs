@@ -27,6 +27,13 @@ public class Health : MonoBehaviour
     {
         health = 0;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == instantKillLayer)
+        {
+            health = 0;
+        }
+    }
 
     private void Start()
     {

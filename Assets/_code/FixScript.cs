@@ -19,6 +19,12 @@ public class FixScript : MonoBehaviour
         isActivated = true;
         screen.SetActive(true);
     }
+    public void Deactivate(Objectives input)
+    {
+        _objectives = input;
+        isActivated = false;
+        screen.SetActive(false);
+    }
     public void onFix(InputAction.CallbackContext value)
     {
         if(isActivated)
@@ -27,8 +33,8 @@ public class FixScript : MonoBehaviour
             {
                 if(Check())
                 {
-                    _objectives.EndPhase();
                     isActivated = false;
+                    _objectives.EndPhase();
                     screen.SetActive(false);
                 }
             }

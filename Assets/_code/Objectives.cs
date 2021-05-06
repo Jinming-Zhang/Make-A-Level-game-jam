@@ -6,6 +6,7 @@ using NaughtyAttributes;
 
 public class Objectives : MonoBehaviour
 {
+    public TargetIndicator indicator;
     public List<GameObject> objectives;
     public float viewTime;
     [Label("Extra Seconds Per Meter")]
@@ -15,8 +16,13 @@ public class Objectives : MonoBehaviour
     private bool objectiveDone;
     private int ObjectIndex;
     private float distanceWithTime;
+    private int last;
+    private float time;
+    GameObject _phase;
+    AudioManager audioManager;
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         cfv = GetComponent<CameraFollowV2>();
         objectiveDone = false;
         StartCoroutine(DoPhase(GenerateIndex()));
@@ -25,11 +31,12 @@ public class Objectives : MonoBehaviour
     }
     private IEnumerator DoPhase(int index)
     {
-        GameObject _phase = objectives[index];
+        _phase = objectives[index];
         _phase.GetComponent<FixScript>().Activate(this);
         StartCoroutine(view(_phase.transform));
         StartCoroutine(Timer(GetDistance(_phase)));
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(viewTime / 2);
+        audioManager.Play("mayday");
     }
     public void EndPhase()
     {
@@ -38,9 +45,11 @@ public class Objectives : MonoBehaviour
     }
     private IEnumerator view(Transform input)
     {
+        indicator.Target = null;
         cfv.targets.Add(input);
         yield return new WaitForSeconds(viewTime);
         cfv.targets.Remove(input);
+        indicator.Target = input;
     }
 
     private IEnumerator Timer(float time)
@@ -51,9 +60,12 @@ public class Objectives : MonoBehaviour
     }
     private void Check()
     {
+        //StopCoroutine(Timer(time));
         StopAllCoroutines();
         if (objectiveDone)
         {
+            audioManager.Play("correct");
+            _phase.GetComponent<FixScript>().Deactivate(this);
             ObjectIndex = GenerateIndex();
             Debug.Log("Fixed it");
             if (objectives.Count - 1 >= ObjectIndex)
@@ -64,6 +76,8 @@ public class Objectives : MonoBehaviour
         }
         else
         {
+            audioManager.Play("wrong");
+            _phase.GetComponent<FixScript>().Deactivate(this);
             ObjectiveLostEvent.Invoke();
             ObjectIndex = GenerateIndex();
             Debug.LogWarning("lost it");
@@ -76,11 +90,21 @@ public class Objectives : MonoBehaviour
     }
     private int GenerateIndex()
     {
-        return Random.Range(0, objectives.Count);
+        int random = last;
+        random = Random.Range(0, objectives.Count);
+        while (random == last)
+        {
+            Debug.Log(random + " " + last);
+            random = Random.Range(0, objectives.Count);
+
+        }
+        last = random;
+        return random;
     }
     private float GetDistance(GameObject _objective)
     {
         distanceWithTime = Vector3.Distance(_objective.transform.position, transform.position) * secondsPerMeter;
+        time = distanceWithTime;
         return distanceWithTime;
     }
 
