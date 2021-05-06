@@ -7,10 +7,12 @@ using NaughtyAttributes;
 public class Objectives : MonoBehaviour
 {
     public TargetIndicator indicator;
+    public Transform player;
     public List<GameObject> objectives;
     public float viewTime;
     [Label("Extra Seconds Per Meter")]
     public float secondsPerMeter;
+    public float MinTime;
     public UnityEvent ObjectiveLostEvent;
     CameraFollowV2 cfv;
     private bool objectiveDone;
@@ -103,7 +105,8 @@ public class Objectives : MonoBehaviour
     }
     private float GetDistance(GameObject _objective)
     {
-        distanceWithTime = Vector3.Distance(_objective.transform.position, transform.position) * secondsPerMeter;
+        distanceWithTime = Vector3.Distance(_objective.transform.position, player.position) * secondsPerMeter;
+        distanceWithTime += MinTime;
         time = distanceWithTime;
         return distanceWithTime;
     }
