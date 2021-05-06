@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [Layer]
-    public int instantKillLayer;
+    public int LaserLayer;
+    public float laserDamage;
+    [Layer]
+    public int MeteoreLayer;
+    public float MeteoreDamage;
     [Scene]
     public int LoadOnDieScene;
     public float maxHealt;
+
     [ProgressBar("Health", "maxHealt", EColor.Red)]
     public float health = 100;
     [Button("Damage 10")] // Specify button text
@@ -29,9 +34,13 @@ public class Health : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == instantKillLayer)
+        if(collision.gameObject.layer == LaserLayer)
         {
-            health = 0;
+            health -= laserDamage;
+        }
+        if (collision.gameObject.layer == MeteoreLayer)
+        {
+            health -= MeteoreDamage;
         }
     }
 
