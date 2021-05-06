@@ -8045,7 +8045,7 @@ MonoBehaviour:
   - {fileID: 318284504}
   - {fileID: 1518848815}
   viewTime: 1.5
-  secondsPerMeter: 0.5
+  secondsPerMeter: 3
   ObjectiveLostEvent:
     m_PersistentCalls:
       m_Calls: []
