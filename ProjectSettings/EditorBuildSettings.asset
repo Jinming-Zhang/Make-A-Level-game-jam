@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Main Menu.unity
     guid: d618b905c741db2409b84a2859f56167
-  - enabled: 0
-    path: Assets/_Scenes/tpsScene.unity
-    guid: c2278f0171f37e84cb3b4fab637a8a15
   - enabled: 1
     path: Assets/_Scenes/demo.unity
     guid: 01e1d6def4dab56459888e0bf46054f6
