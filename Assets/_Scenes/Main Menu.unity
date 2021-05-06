@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017481154, g: 0.000000028446205, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12294,7 +12294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1022244335
 Transform:
   m_ObjectHideFlags: 0
@@ -18703,8 +18703,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -282.669, y: 127}
-  m_SizeDelta: {x: 151.782, y: 50}
+  m_AnchoredPosition: {x: -269.86, y: 144}
+  m_SizeDelta: {x: 241.7063, y: 36.2616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594539513
 MonoBehaviour:
@@ -18726,9 +18726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TITLE
-
-'
+  m_text: Azimuth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ce157c0ad25a1f4bb3a88bf8ee6fc49, type: 2}
   m_sharedMaterial: {fileID: -4453703626676337141, guid: 4ce157c0ad25a1f4bb3a88bf8ee6fc49, type: 2}
@@ -18755,13 +18753,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -19792,7 +19790,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1935312438
 GameObject:
   m_ObjectHideFlags: 0
