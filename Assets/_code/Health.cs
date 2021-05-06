@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 public class Health : MonoBehaviour
 {
     [Layer]
@@ -14,6 +16,9 @@ public class Health : MonoBehaviour
     [Scene]
     public int LoadOnDieScene;
     public float maxHealt;
+
+    public Slider healthSlider;
+    public TMP_Text currHPText;
 
     [ProgressBar("Health", "maxHealt", EColor.Red)]
     public float health = 100;
@@ -37,16 +42,22 @@ public class Health : MonoBehaviour
         if(collision.gameObject.layer == LaserLayer)
         {
             health -= laserDamage;
+            healthSlider.value -= laserDamage;
         }
         if (collision.gameObject.layer == MeteoreLayer)
         {
             health -= MeteoreDamage;
+            healthSlider.value -= MeteoreDamage;
         }
+        currHPText.text = healthSlider.value.ToString();
     }
 
     private void Start()
     {
         health = maxHealt;
+        healthSlider.minValue = 0;
+        healthSlider.maxValue = 100;
+        
     }
     private void Update()
     {
@@ -54,5 +65,6 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene(LoadOnDieScene);
         }
+        
     }
 }
