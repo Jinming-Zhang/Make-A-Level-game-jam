@@ -22,6 +22,11 @@ public class Objectives : MonoBehaviour
     private float time;
     GameObject _phase;
     AudioManager audioManager;
+    [Button("Next")] // Specify button text
+    public void Button()
+    {
+        EndPhase();
+    }
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
