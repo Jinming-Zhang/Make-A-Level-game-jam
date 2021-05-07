@@ -4969,6 +4969,7 @@ GameObject:
   - component: {fileID: 5871134503739206168}
   - component: {fileID: 6264732223984401438}
   - component: {fileID: 6499157250666033315}
+  - component: {fileID: 7749862727324285846}
   m_Layer: 0
   m_Name: Gas_Sprayer
   m_TagString: Untagged
@@ -4983,8 +4984,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6499157250666033314}
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -5.55, y: 1.91, z: 0.685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6264732224380090719}
@@ -4994,7 +4995,7 @@ Transform:
   - {fileID: 3606924115483908417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6264732223984401438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5025,6 +5026,25 @@ MonoBehaviour:
   air: {fileID: 6264732225209253598}
   force: 8
   playerLayer: 9
+--- !u!95 &7749862727324285846
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499157250666033314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5910c2b12745784bb5abe7da44c87d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8829382080642672896
 GameObject:
   m_ObjectHideFlags: 0
