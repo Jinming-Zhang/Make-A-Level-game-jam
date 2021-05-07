@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public static AudioManager instance;
+    public AudioMixerGroup mixer;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,6 +23,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.Clip;
+            s.source.outputAudioMixerGroup = mixer;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
@@ -51,5 +53,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+    private void Update()
+    {
+        transform.position = Camera.main.transform.position;
     }
 }

@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     [Scene]
     public int LoadOnDieScene;
     public float maxHealt;
+    AudioManager audioManager;
 
     public Slider healthSlider;
     public TMP_Text currHPText;
@@ -44,11 +45,13 @@ public class Health : MonoBehaviour
         {
             health -= laserDamage;
             healthSlider.value -= laserDamage;
+            audioManager.Play("laser");
         }
         if (collision.gameObject.layer == MeteoreLayer)
         {
             health -= MeteoreDamage;
             healthSlider.value -= MeteoreDamage;
+            audioManager.Play("meteore");
         }
         currHPText.text = healthSlider.value.ToString();
     }
@@ -58,6 +61,7 @@ public class Health : MonoBehaviour
         health = maxHealt;
         healthSlider.minValue = 0;
         healthSlider.maxValue = 100;
+        audioManager = FindObjectOfType<AudioManager>();
     }
     private void Update()
     {

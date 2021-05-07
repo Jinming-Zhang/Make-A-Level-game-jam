@@ -7946,11 +7946,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1719810680}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000009536743, y: 0}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 101.4462, y: 22.353195}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &696526785
@@ -7965,7 +7965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd57ae19886f914984ce4f5cd0cb549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 5
+  timeToDestroy: 30
 --- !u!114 &696526786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12922,7 +12922,7 @@ RectTransform:
   - {fileID: 378984627}
   - {fileID: 1219347975}
   m_Father: {fileID: 1719810680}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17061,40 +17061,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: air
-    Clip: {fileID: 8300000, guid: e6dd3b75c8240bb468d33dd788dbb0ba, type: 3}
-    volume: 0
+    Clip: {fileID: 8300000, guid: c45bd0b34184ecb479640ec52ea48084, type: 3}
+    volume: 0.465
     pitch: 1
-    spatialBlend: 0
-    loop: 0
+    spatialBlend: 1
+    loop: 1
     source: {fileID: 0}
-  - name: impact
-    Clip: {fileID: 8300000, guid: b83a461b35215cb40963b987af11281b, type: 3}
-    volume: 0
-    pitch: 1
-    spatialBlend: 0
+  - name: meteore
+    Clip: {fileID: 8300000, guid: 0397d3c68ddbeaf4d9390c4a93612bad, type: 3}
+    volume: 1
+    pitch: 0.3
+    spatialBlend: 1
     loop: 0
     source: {fileID: 0}
   - name: mayday
     Clip: {fileID: 8300000, guid: 64f4b8af0de5ac34e922074ddfa8b43d, type: 3}
-    volume: 1
+    volume: 0.723
     pitch: 1
-    spatialBlend: 0
+    spatialBlend: 1
     loop: 0
     source: {fileID: 0}
   - name: correct
     Clip: {fileID: 8300000, guid: 792bdb75c3ad24045a7daf1a1f63a907, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend: 0
+    spatialBlend: 1
     loop: 0
     source: {fileID: 0}
   - name: wrong
     Clip: {fileID: 8300000, guid: f3daab55e8d6b1c4695ef4817f1e7ceb, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend: 0
+    spatialBlend: 1
     loop: 0
     source: {fileID: 0}
+  - name: laser
+    Clip: {fileID: 8300000, guid: dc753b9fdaed20f4abb1c2b9f3de62c8, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    source: {fileID: 0}
+  mixer: {fileID: 24300002, guid: 4b8fa4bf12245954780afa9caa7b32d3, type: 2}
 --- !u!4 &1531973130
 Transform:
   m_ObjectHideFlags: 0
@@ -17103,7 +17111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531973128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 257.69315, y: 100.16773, z: 125.44711}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19038,10 +19046,10 @@ RectTransform:
   m_Children:
   - {fileID: 1948977952}
   - {fileID: 2129514160}
+  - {fileID: 696526784}
   - {fileID: 1194261994}
   - {fileID: 2124924848}
   - {fileID: 2059507871}
-  - {fileID: 696526784}
   m_Father: {fileID: 1160282475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19946,10 +19954,10 @@ PrefabInstance:
     - target: {fileID: 6093098222786615470, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3f6820b6f488d72439b9c282eae1ffbb, type: 3}
+      objectReference: {fileID: 21300000, guid: 2f3f9883a1376c14d94e45a67d29ded6, type: 3}
     - target: {fileID: 6093098222786615471, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6093098222786615471, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
       propertyPath: m_LocalScale.y
@@ -22244,7 +22252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd57ae19886f914984ce4f5cd0cb549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 5
+  timeToDestroy: 30
 --- !u!1001 &1953794622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23783,7 +23791,7 @@ RectTransform:
   - {fileID: 1624543185}
   - {fileID: 1428669947}
   m_Father: {fileID: 1719810680}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -24566,7 +24574,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1719810680}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -24770,7 +24778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd57ae19886f914984ce4f5cd0cb549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 5
+  timeToDestroy: 30
 --- !u!1 &2130384370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fcae78cf4e7d55e4caf299dd89fc2b46, type: 3}

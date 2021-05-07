@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public GameObject down;
     public bool IsInverted;
     AudioManager audioManager;
+    bool playing;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +32,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rawInputMovement != Vector3.zero)
+        if (rawInputMovement != Vector3.zero && !playing)
         {
             audioManager.Play("air");
+            Debug.Log("play");
+            playing = true;
+        }
+        if(rawInputMovement == Vector3.zero)
+        {
+            audioManager.Stop("air");
+            Debug.Log("stop");
+            playing = false;
         }
         if (!IsInverted)
         {
