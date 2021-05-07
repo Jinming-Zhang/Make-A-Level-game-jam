@@ -13,6 +13,7 @@ public class Objectives : MonoBehaviour
     [Label("Extra Seconds Per Meter")]
     public float secondsPerMeter;
     public float MinTime;
+    public float PressTime;
     public UnityEvent ObjectiveLostEvent;
     CameraFollowV2 cfv;
     private bool objectiveDone;
@@ -39,7 +40,7 @@ public class Objectives : MonoBehaviour
     private IEnumerator DoPhase(int index)
     {
         _phase = objectives[index];
-        _phase.GetComponent<FixScript>().Activate(this);
+        _phase.GetComponent<FixScript>().Activate(this, PressTime);
         StartCoroutine(view(_phase.transform));
         StartCoroutine(Timer(GetDistance(_phase)));
         yield return new WaitForSeconds(viewTime / 2);

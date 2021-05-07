@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     [Foldout("particles")]
     public GameObject down;
     public bool IsInverted;
+    public float StopEffectIntervall;
     AudioManager audioManager;
+    bool stop;
     bool playing;
     // Start is called before the first frame update
     void Start()
@@ -35,13 +37,11 @@ public class PlayerController : MonoBehaviour
         if (rawInputMovement != Vector3.zero && !playing)
         {
             audioManager.Play("air");
-            Debug.Log("play");
             playing = true;
         }
         if(rawInputMovement == Vector3.zero)
         {
             audioManager.Stop("air");
-            Debug.Log("stop");
             playing = false;
         }
         if (!IsInverted)
@@ -82,37 +82,40 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.AddForce(-rawInputMovement * speed * Time.deltaTime);
-            if (rawInputMovement.x > 0)
+            if (stop == false)
             {
-                right.SetActive(true);
-                left.SetActive(false);
-            }
-            else if (rawInputMovement.x != 0)
-            {
-                right.SetActive(false);
-                left.SetActive(true);
-            }
-            else
-            {
-                right.SetActive(false);
-                left.SetActive(false);
-            }
+                if (rawInputMovement.x > 0)
+                {
+                    right.SetActive(true);
+                    left.SetActive(false);
+                }
+                else if (rawInputMovement.x != 0)
+                {
+                    right.SetActive(false);
+                    left.SetActive(true);
+                }
+                else
+                {
+                    right.SetActive(false);
+                    left.SetActive(false);
+                }
 
 
-            if (rawInputMovement.y > 0)
-            {
-                up.SetActive(true);
-                down.SetActive(false);
-            }
-            else if (rawInputMovement.y != 0)
-            {
-                up.SetActive(false);
-                down.SetActive(true);
-            }
-            else
-            {
-                up.SetActive(false);
-                down.SetActive(false);
+                if (rawInputMovement.y > 0)
+                {
+                    up.SetActive(true);
+                    down.SetActive(false);
+                }
+                else if (rawInputMovement.y != 0)
+                {
+                    up.SetActive(false);
+                    down.SetActive(true);
+                }
+                else
+                {
+                    up.SetActive(false);
+                    down.SetActive(false);
+                }
             }
         }
     }
@@ -133,6 +136,21 @@ public class PlayerController : MonoBehaviour
         if(value.started)
         {
             rb.AddForce(rb.velocity * -1 * 30);
+            StartCoroutine(TurnOffAfterTime(StopEffectIntervall));
         }
+    }
+    private IEnumerator TurnOffAfterTime(float time)
+    {
+        stop = true;
+        right.SetActive(true);
+        left.SetActive(true);
+        up.SetActive(true);
+        down.SetActive(true);
+        yield return new WaitForSeconds(time);
+        right.SetActive(false);
+        left.SetActive(false);
+        up.SetActive(false);
+        down.SetActive(false);
+        stop = false;
     }
 }

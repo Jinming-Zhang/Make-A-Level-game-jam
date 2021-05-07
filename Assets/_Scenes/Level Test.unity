@@ -6345,7 +6345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.4619255
+      value: 7.5264587
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6353,23 +6353,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.72069174
+      value: -0.7566721
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0052933707
+      value: 0.3489589
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0052932855
+      value: -0.34895858
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70708734
+      value: -0.61500263
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7070866
+      value: -0.615002
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6381,7 +6381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7663939375914238910, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -180.858
+      value: -120.858
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd5b37b0063437429568694c7a4ab4b, type: 3}
@@ -17064,42 +17064,42 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: c45bd0b34184ecb479640ec52ea48084, type: 3}
     volume: 0.465
     pitch: 1
-    spatialBlend: 1
+    spatialBlend: 0
     loop: 1
     source: {fileID: 0}
   - name: meteore
     Clip: {fileID: 8300000, guid: 0397d3c68ddbeaf4d9390c4a93612bad, type: 3}
     volume: 1
     pitch: 0.3
-    spatialBlend: 1
+    spatialBlend: 0
     loop: 0
     source: {fileID: 0}
   - name: mayday
     Clip: {fileID: 8300000, guid: 64f4b8af0de5ac34e922074ddfa8b43d, type: 3}
     volume: 0.723
     pitch: 1
-    spatialBlend: 1
+    spatialBlend: 0
     loop: 0
     source: {fileID: 0}
   - name: correct
     Clip: {fileID: 8300000, guid: 792bdb75c3ad24045a7daf1a1f63a907, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend: 1
+    spatialBlend: 0
     loop: 0
     source: {fileID: 0}
   - name: wrong
     Clip: {fileID: 8300000, guid: f3daab55e8d6b1c4695ef4817f1e7ceb, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend: 1
+    spatialBlend: 0
     loop: 0
     source: {fileID: 0}
   - name: laser
     Clip: {fileID: 8300000, guid: dc753b9fdaed20f4abb1c2b9f3de62c8, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend: 1
+    spatialBlend: 0
     loop: 0
     source: {fileID: 0}
   mixer: {fileID: 24300002, guid: 4b8fa4bf12245954780afa9caa7b32d3, type: 2}
@@ -19990,6 +19990,10 @@ PrefabInstance:
     - target: {fileID: 6093098223605565214, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093098223605565281, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
+      propertyPath: StopEffectIntervall
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6093098223605565284, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size

@@ -186,7 +186,7 @@
                     "name": "",
                     "id": "1b31c09f-a137-4865-b013-dfcdd729b5f7",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Hold(duration=2,pressPoint=2)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "stop",

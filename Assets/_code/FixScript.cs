@@ -13,10 +13,12 @@ public class FixScript : MonoBehaviour
     [Layer]
     public int playerLayer;
     Objectives _objectives;
-    public void Activate(Objectives input)
+    float time;
+    public void Activate(Objectives input, float deactivateTime)
     {
         _objectives = input;
         isActivated = true;
+        time = deactivateTime;
         screen.SetActive(true);
     }
     public void Deactivate(Objectives input)
@@ -29,7 +31,7 @@ public class FixScript : MonoBehaviour
     {
         if(isActivated)
         {
-            if (value.started)
+            if (value.time > time)
             {
                 if(Check())
                 {
