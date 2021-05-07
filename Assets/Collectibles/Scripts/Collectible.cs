@@ -2,30 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
 public abstract class Collectible : MonoBehaviour
 {
     [SerializeField] protected PlayerInventory.CollectibleItem itemType;
 
-    /*private void OnCollisionEnter(Collision collision)
+    public void OnPlayerEnteredCollectible(Collider player)
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            Director.Instance.GainItem(itemType, 1);
-            OnItemCollected();
-            Destroy(gameObject);
-        }
-    }*/
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Director.Instance.GainItem(itemType, 1);
-            OnItemCollected();
-            Destroy(gameObject);
-        }
+        Director.Instance.GainItem(itemType, 1);
+        OnItemCollected();
     }
     protected virtual void OnItemCollected()
     {
+        Destroy(gameObject);
     }
 }

@@ -6,12 +6,9 @@ public class PlayerInventory
 {
     public enum CollectibleItem
     {
-        Coin,
-        Gear
+        Gear,
+        Medkit
     }
-
-    public int CoinOwned = 0;
-    public int GearOwned = 0;
 
     private Dictionary<CollectibleItem, int> Inventory = new Dictionary<CollectibleItem, int>();
     public void GainItem(CollectibleItem itemType, int amt)
@@ -25,6 +22,7 @@ public class PlayerInventory
         {
             Inventory.Add(itemType, 1);
         }
+        UpdateUI();
     }
 
     public int CheckItem(CollectibleItem itemType)
