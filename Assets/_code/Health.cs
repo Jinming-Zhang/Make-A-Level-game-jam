@@ -10,20 +10,16 @@ public class Health : MonoBehaviour
     [Layer]
     public int LaserLayer;
     public float laserDamage;
-    public float laserKickback;
     [Layer]
     public int MeteoreLayer;
     public float MeteoreDamage;
-    public float MeteoreKickback;
     [Scene]
     public int LoadOnDieScene;
     public float maxHealt;
-    public GameObject dir;
 
     public Slider healthSlider;
     public TMP_Text currHPText;
 
-    Rigidbody rb;
 
     [ProgressBar("Health", "maxHealt", EColor.Red)]
     public float health = 100;
@@ -62,8 +58,6 @@ public class Health : MonoBehaviour
         health = maxHealt;
         healthSlider.minValue = 0;
         healthSlider.maxValue = 100;
-        rb = GetComponent<Rigidbody>();
-        
     }
     private void Update()
     {
@@ -71,6 +65,5 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene(LoadOnDieScene);
         }
-        
     }
 }

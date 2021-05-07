@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         if(value.started)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(0);
         }
     }
     public void onPlayerStop(InputAction.CallbackContext value)
