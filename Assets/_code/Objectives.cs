@@ -24,6 +24,7 @@ public class Objectives : MonoBehaviour
     GameObject _phase;
     AudioManager audioManager;
     public Countdown countDown;
+    public ScoreCounter scoreCounter;
     [Button("Next")] // Specify button text
     public void Button()
     {
@@ -62,7 +63,6 @@ public class Objectives : MonoBehaviour
 
     private IEnumerator Timer(float time)
     {
-        Debug.Log("Starting the timer! (" + time + ")");
         countDown.StartTimer(time);
         yield return new WaitForSeconds(time);
         Check();
@@ -73,10 +73,9 @@ public class Objectives : MonoBehaviour
         StopAllCoroutines();
         if (objectiveDone)
         {
-            audioManager.Play("correct");
             _phase.GetComponent<FixScript>().Deactivate(this);
+            scoreCounter.AddPoint(1);
             ObjectIndex = GenerateIndex();
-            Debug.Log("Fixed it");
             if (objectives.Count - 1 >= ObjectIndex)
                 StartCoroutine(DoPhase(ObjectIndex));
             else
@@ -85,11 +84,10 @@ public class Objectives : MonoBehaviour
         }
         else
         {
-            audioManager.Play("wrong");
             _phase.GetComponent<FixScript>().Deactivate(this);
+            scoreCounter.RemovePoint(1);
             ObjectiveLostEvent.Invoke();
             ObjectIndex = GenerateIndex();
-            Debug.LogWarning("lost it");
             if (objectives.Count - 1 >= ObjectIndex)
                 StartCoroutine(DoPhase(ObjectIndex));
             else
@@ -103,7 +101,6 @@ public class Objectives : MonoBehaviour
         random = Random.Range(0, objectives.Count);
         while (random == last)
         {
-            Debug.Log(random + " " + last);
             random = Random.Range(0, objectives.Count);
 
         }
