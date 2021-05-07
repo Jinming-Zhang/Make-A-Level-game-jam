@@ -23,6 +23,7 @@ public class Objectives : MonoBehaviour
     private float time;
     GameObject _phase;
     AudioManager audioManager;
+    public Countdown countDown;
     [Button("Next")] // Specify button text
     public void Button()
     {
@@ -35,8 +36,7 @@ public class Objectives : MonoBehaviour
         objectiveDone = false;
         StartCoroutine(DoPhase(GenerateIndex()));
         if (ObjectiveLostEvent == null)
-            ObjectiveLostEvent = new UnityEvent();
-    }
+            ObjectiveLostEvent = new UnityEvent();    }
     private IEnumerator DoPhase(int index)
     {
         _phase = objectives[index];
@@ -63,6 +63,7 @@ public class Objectives : MonoBehaviour
     private IEnumerator Timer(float time)
     {
         Debug.Log("Starting the timer! (" + time + ")");
+        countDown.StartTimer(time);
         yield return new WaitForSeconds(time);
         Check();
     }
