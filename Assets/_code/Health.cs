@@ -16,10 +16,12 @@ public class Health : MonoBehaviour
     [Scene]
     public int LoadOnDieScene;
     public float maxHealt;
+    public float kickback;
     AudioManager audioManager;
 
     public Slider healthSlider;
     public TMP_Text currHPText;
+    Rigidbody rb;
 
 
     [ProgressBar("Health", "maxHealt", EColor.Red)]
@@ -46,6 +48,7 @@ public class Health : MonoBehaviour
             health -= laserDamage;
             healthSlider.value -= laserDamage;
             audioManager.Play("laser");
+            ApplyForce(collision.transform);
         }
         if (collision.gameObject.layer == MeteoreLayer)
         {
@@ -62,6 +65,7 @@ public class Health : MonoBehaviour
         healthSlider.minValue = 0;
         healthSlider.maxValue = 100;
         audioManager = FindObjectOfType<AudioManager>();
+        rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -69,5 +73,9 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene(LoadOnDieScene);
         }
+    }
+    void ApplyForce(Transform laser)
+    {
+        rb.AddExplosionForce(kickback, laser.position, 1000);
     }
 }
