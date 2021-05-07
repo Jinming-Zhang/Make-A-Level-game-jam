@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed37899aad032a744b7b7b1f32fe949a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 1
   animator: {fileID: 537253050914206984}
   HealAmount: 1
 --- !u!1001 &3542232315509594620
