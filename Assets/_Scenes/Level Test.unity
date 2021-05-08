@@ -4187,7 +4187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 378984627}
   - component: {fileID: 378984628}
-  - component: {fileID: 378984629}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -4281,19 +4280,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &378984629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378984626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39df7876ad2e85e4d8c6dc1e82952bf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 378984628}
 --- !u!1 &385635223
 GameObject:
   m_ObjectHideFlags: 0
@@ -12816,6 +12802,7 @@ GameObject:
   - component: {fileID: 1160282474}
   - component: {fileID: 1160282473}
   - component: {fileID: 1160282472}
+  - component: {fileID: 1160282476}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -12880,6 +12867,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1160282476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160282471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39df7876ad2e85e4d8c6dc1e82952bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 378984628}
 --- !u!4 &1168284571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4614971016107557477, guid: 58a83d850932e0d4184d475478f54297, type: 3}

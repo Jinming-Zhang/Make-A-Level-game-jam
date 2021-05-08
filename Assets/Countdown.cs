@@ -12,10 +12,11 @@ public class Countdown : MonoBehaviour
     float startTime;
     bool display;
     float time;
+    AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -40,6 +41,11 @@ public class Countdown : MonoBehaviour
                     aberration.intensity.value = value;
                 }
                 text.text = Mathf.RoundToInt(endTime).ToString();
+                if(endTime < 10)
+                {
+                    Debug.Log("now");
+                    audioManager.PlayIf("count");
+                }
             }
             else
             {

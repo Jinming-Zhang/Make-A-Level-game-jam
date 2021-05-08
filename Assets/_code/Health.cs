@@ -85,6 +85,7 @@ public class Health : MonoBehaviour
 		{
 			if (audioManager != null)
 			{
+				audioManager.Play("over");
 				audioManager.Stop("air");
 				audioManager.Stop("mayday");
 				audioManager.Stop("correct");
