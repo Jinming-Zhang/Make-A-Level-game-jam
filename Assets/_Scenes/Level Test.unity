@@ -17437,7 +17437,7 @@ PrefabInstance:
       objectReference: {fileID: 823767075}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: MinTime
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: viewTime
@@ -17457,7 +17457,7 @@ PrefabInstance:
       objectReference: {fileID: 966814915}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: secondsPerMeter
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: objectives.Array.size
@@ -17799,7 +17799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499157250666033315, guid: 0c824ee009187f648a23987f3d3fa616, type: 3}
       propertyPath: force
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c824ee009187f648a23987f3d3fa616, type: 3}
@@ -19737,7 +19737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499157250666033315, guid: 0c824ee009187f648a23987f3d3fa616, type: 3}
       propertyPath: force
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c824ee009187f648a23987f3d3fa616, type: 3}
