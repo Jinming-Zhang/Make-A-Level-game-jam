@@ -9,7 +9,7 @@ public class PlayTheme : MonoBehaviour
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        audioManager.Play("music");
+        audioManager.PlayIf("music");
     }
 
     // Update is called once per frame

@@ -41,6 +41,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
+        s.isPlaying = true;
         s.source.Play();
     }
 
@@ -52,8 +53,26 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
+        s.isPlaying = false;
         s.source.Stop();
     }
+    public void PlayIf(string name)
+    {
+        //Debug.Log("play");
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        if(s.isPlaying == true)
+        {
+            return;
+        }
+        s.isPlaying = true;
+        s.source.Play();
+    }
+
     private void Update()
     {
         transform.position = Camera.main.transform.position;
