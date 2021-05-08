@@ -45,7 +45,10 @@ public class Objectives : MonoBehaviour
         StartCoroutine(view(_phase.transform));
         StartCoroutine(Timer(GetDistance(_phase)));
         yield return new WaitForSeconds(viewTime / 2);
-        audioManager.Play("mayday");
+        if (audioManager != null)
+        {
+            audioManager.Play("mayday");
+        }
     }
     public void EndPhase()
     {

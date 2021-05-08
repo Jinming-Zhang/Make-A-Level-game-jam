@@ -47,14 +47,20 @@ public class Health : MonoBehaviour
         {
             health -= laserDamage;
             healthSlider.value -= laserDamage;
-            audioManager.Play("laser");
+            if (audioManager != null)
+            {
+                audioManager.Play("laser");
+            }
             ApplyForce(collision.transform);
         }
         if (collision.gameObject.layer == MeteoreLayer)
         {
             health -= MeteoreDamage;
             healthSlider.value -= MeteoreDamage;
-            audioManager.Play("meteore");
+            if (audioManager != null)
+            {
+                audioManager.Play("meteore");
+            }
         }
         currHPText.text = healthSlider.value.ToString();
     }
@@ -71,6 +77,10 @@ public class Health : MonoBehaviour
     {
         if(health <= 0)
         {
+            if (audioManager != null)
+            {
+                audioManager.Stop("air");
+            }
             SceneManager.LoadScene(LoadOnDieScene);
         }
     }

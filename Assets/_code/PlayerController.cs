@@ -34,15 +34,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rawInputMovement != Vector3.zero && !playing)
+        if(audioManager != null)
         {
-            audioManager.Play("air");
-            playing = true;
-        }
-        if(rawInputMovement == Vector3.zero)
-        {
-            audioManager.Stop("air");
-            playing = false;
+            if (rawInputMovement != Vector3.zero && !playing)
+            {
+                audioManager.Play("air");
+                playing = true;
+            }
+            if(rawInputMovement == Vector3.zero)
+            {
+                audioManager.Stop("air");
+                playing = false;
+            }
         }
         if (!IsInverted)
         {
