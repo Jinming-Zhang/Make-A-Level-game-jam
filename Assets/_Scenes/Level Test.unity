@@ -11177,6 +11177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 185238054}
+  volume: {fileID: 1294531016}
 --- !u!1001 &970989961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18096,7 +18097,7 @@ PrefabInstance:
       objectReference: {fileID: 2011951796}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: minDistance
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: scoreCounter

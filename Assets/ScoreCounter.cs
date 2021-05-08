@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using NaughtyAttributes;
 
 public class ScoreCounter : MonoBehaviour
 {
     public TextMeshProUGUI text;
     [HideInInspector]
     public int score;
+    [Button("RESET")]
+    public void Reset()
+    {
+        PlayerPrefs.DeleteKey("high score");
+    }
+
 
     public void AddPoint(int amount)
     {

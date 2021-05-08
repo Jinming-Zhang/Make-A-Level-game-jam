@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class Countdown : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public Volume volume;
     float startTime;
     bool display;
     float time;
@@ -24,6 +27,18 @@ public class Countdown : MonoBehaviour
             {
                 float up = Time.time - startTime;
                 float endTime = time - up;
+
+                float value = Mathf.InverseLerp(startTime, time, Time.time) / 3;
+                LensDistortion lensDistortion;
+                if(volume.profile.TryGet<LensDistortion>(out lensDistortion))
+                {
+                    lensDistortion.intensity.value = value;
+                }
+                ChromaticAberration aberration;
+                if (volume.profile.TryGet<ChromaticAberration>(out aberration))
+                {
+                    aberration.intensity.value = value;
+                }
                 text.text = Mathf.RoundToInt(endTime).ToString();
             }
             else
