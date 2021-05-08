@@ -14,7 +14,6 @@ public class Objectives : MonoBehaviour
     public float secondsPerMeter;
     public float MinTime;
     public float minDistance;
-    public UnityEvent ObjectiveLostEvent;
     CameraFollowV2 cfv;
     private bool objectiveDone;
     private int ObjectIndex;
@@ -24,6 +23,7 @@ public class Objectives : MonoBehaviour
     int random;
     GameObject _phase;
     AudioManager audioManager;
+    [Space(10)]
     public Countdown countDown;
     public ScoreCounter scoreCounter;
     [Button("Next")] // Specify button text
@@ -37,8 +37,6 @@ public class Objectives : MonoBehaviour
         cfv = GetComponent<CameraFollowV2>();
         objectiveDone = false;
         StartCoroutine(DoPhase(GenerateIndex()));
-        if (ObjectiveLostEvent == null)
-            ObjectiveLostEvent = new UnityEvent();
     }
     private IEnumerator DoPhase(int index)
     {
@@ -91,7 +89,6 @@ public class Objectives : MonoBehaviour
         {
             _phase.GetComponent<FixScript>().Deactivate(this);
             scoreCounter.RemovePoint(1);
-            ObjectiveLostEvent.Invoke();
             ObjectIndex = GenerateIndex();
             if (objectives.Count - 1 >= ObjectIndex)
                 StartCoroutine(DoPhase(ObjectIndex));
