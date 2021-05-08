@@ -12,6 +12,11 @@ public class ScoreCounter : MonoBehaviour
     public void AddPoint(int amount)
     {
         score += amount;
+        if(score > PlayerPrefs.GetInt("high score"))
+        {
+            Debug.Log("set");
+            PlayerPrefs.SetInt("high score", score);
+        }
         text.text = "score: " + score;
     }
     public void RemovePoint(int amount)

@@ -4504,6 +4504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 891550389}
   transTime: 1
+  Scene: 0
 --- !u!1 &1531973128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,6 +4570,7 @@ MonoBehaviour:
     spatialBlend: 0
     loop: 0
     source: {fileID: 0}
+  mixer: {fileID: 0}
 --- !u!4 &1531973130
 Transform:
   m_ObjectHideFlags: 0
@@ -5929,11 +5931,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614971016107557477, guid: 58a83d850932e0d4184d475478f54297, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 4614971016107557477, guid: 58a83d850932e0d4184d475478f54297, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.25
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 4614971016107557477, guid: 58a83d850932e0d4184d475478f54297, type: 3}
       propertyPath: m_LocalPosition.z

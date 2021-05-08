@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NaughtyAttributes;
 using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
     public Animator transition;
     public float transTime;
+    [Scene]
+    public int Scene;
 
     public void PlayGame()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadLevel(Scene));
     }
 
     public void QuitGame()
