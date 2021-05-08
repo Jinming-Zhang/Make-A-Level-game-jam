@@ -29,7 +29,7 @@ public class PlayerInventory
 			while (medkits.Count > 0)
 			{
                 Medkit medkit = medkits[0] as Medkit;
-				Director.Instance.playerHealth.HealthSync += medkit.HealAmount;
+				Director.Instance.PlayerHealth.HealthSync += medkit.HealAmount;
 				medkits.Remove(medkit);
 			}
 		}
