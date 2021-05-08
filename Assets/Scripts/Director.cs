@@ -5,6 +5,7 @@ using UnityEngine;
 public class Director : MonoBehaviour
 {
     public static Director Instance;
+    public Health playerHealth;
     private PlayerInventory playerInventory = new PlayerInventory();
     private void Awake()
     {
