@@ -13,7 +13,7 @@ public class Objectives : MonoBehaviour
     [Label("Extra Seconds Per Meter")]
     public float secondsPerMeter;
     public float MinTime;
-    public float PressTime;
+    public float minDistance;
     public UnityEvent ObjectiveLostEvent;
     CameraFollowV2 cfv;
     private bool objectiveDone;
@@ -21,6 +21,7 @@ public class Objectives : MonoBehaviour
     private float distanceWithTime;
     private int last;
     private float time;
+    int random;
     GameObject _phase;
     AudioManager audioManager;
     public Countdown countDown;
@@ -37,11 +38,12 @@ public class Objectives : MonoBehaviour
         objectiveDone = false;
         StartCoroutine(DoPhase(GenerateIndex()));
         if (ObjectiveLostEvent == null)
-            ObjectiveLostEvent = new UnityEvent();    }
+            ObjectiveLostEvent = new UnityEvent();
+    }
     private IEnumerator DoPhase(int index)
     {
         _phase = objectives[index];
-        _phase.GetComponent<FixScript>().Activate(this, PressTime);
+        _phase.GetComponent<FixScript>().Activate(this);
         StartCoroutine(view(_phase.transform));
         StartCoroutine(Timer(GetDistance(_phase)));
         yield return new WaitForSeconds(viewTime / 2);
@@ -100,12 +102,20 @@ public class Objectives : MonoBehaviour
     }
     private int GenerateIndex()
     {
-        int random = last;
         random = Random.Range(0, objectives.Count);
+        while (Vector3.Distance(objectives[random].transform.position, player.transform.position) < minDistance)
+        {
+            Debug.Log("too close");
+            random = Random.Range(0, objectives.Count);
+        }
         while (random == last)
         {
             random = Random.Range(0, objectives.Count);
-
+            while (Vector3.Distance(objectives[random].transform.position, player.transform.position) < minDistance)
+            {
+                Debug.Log("too close");
+                random = Random.Range(0, objectives.Count);
+            }
         }
         last = random;
         return random;

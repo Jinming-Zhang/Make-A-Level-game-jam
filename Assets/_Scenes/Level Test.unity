@@ -17452,6 +17452,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2011951796}
     - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
+      propertyPath: minDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269423532454545423, guid: bcebcb4279cee724fb059f0349c12f86, type: 3}
       propertyPath: scoreCounter
       value: 
       objectReference: {fileID: 966814915}

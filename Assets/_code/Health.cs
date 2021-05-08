@@ -80,6 +80,11 @@ public class Health : MonoBehaviour
             if (audioManager != null)
             {
                 audioManager.Stop("air");
+                audioManager.Stop("mayday");
+                audioManager.Stop("correct");
+                audioManager.Stop("wrong");
+                audioManager.Stop("laser");
+                audioManager.Stop("meteore");
             }
             SceneManager.LoadScene(LoadOnDieScene);
         }
