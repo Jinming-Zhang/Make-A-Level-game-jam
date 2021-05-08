@@ -20,9 +20,9 @@ public class Director : MonoBehaviour
         }
     }
 
-    public void GainItem(PlayerInventory.CollectibleItem itemType, int amt)
+    public void GainItem(PlayerInventory.CollectibleItem itemType, Collectible collecible)
     {
-        playerInventory.GainItem(itemType, amt);
+        playerInventory.GainItem(itemType, collecible);
     }
 
     public int CheckItem(PlayerInventory.CollectibleItem itemType)

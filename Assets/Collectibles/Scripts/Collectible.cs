@@ -8,7 +8,7 @@ public abstract class Collectible : MonoBehaviour
 
     public void OnPlayerEnteredCollectible(Collider player)
     {
-        Director.Instance.GainItem(itemType, 1);
+        Director.Instance.GainItem(itemType, this);
         OnItemCollected();
     }
     protected virtual void OnItemCollected()

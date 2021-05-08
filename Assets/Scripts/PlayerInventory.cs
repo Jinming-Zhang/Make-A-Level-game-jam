@@ -10,24 +10,27 @@ public class PlayerInventory
 		Medkit
 	}
 
-	private Dictionary<CollectibleItem, int> Inventory = new Dictionary<CollectibleItem, int>();
-	public void GainItem(CollectibleItem itemType, int amt)
+	private Dictionary<CollectibleItem, List<Collectible>> Inventory = new Dictionary<CollectibleItem, List<Collectible>>();
+	public void GainItem(CollectibleItem itemType, Collectible collectible)
 	{
 		if (Inventory.ContainsKey(itemType))
 		{
-			Inventory[itemType] = Mathf.Max(0, Inventory[itemType] + amt);
+			Inventory[itemType].Add(collectible);
 			UpdateUI();
 		}
 		else
 		{
-			Inventory.Add(itemType, 1);
+			Inventory.Add(itemType, new List<Collectible>());
+            Inventory[itemType].Add(collectible);
 		}
 		if (Inventory.ContainsKey(CollectibleItem.Medkit))
 		{
-			while (Inventory[CollectibleItem.Medkit] > 0)
+            List<Collectible> medkits = Inventory[CollectibleItem.Medkit];
+			while (medkits.Count > 0)
 			{
-				Director.Instance.playerHealth.HealthSync += 20;
-				Inventory[CollectibleItem.Medkit]--;
+                Medkit medkit = medkits[0] as Medkit;
+				Director.Instance.playerHealth.HealthSync += medkit.HealAmount;
+				medkits.Remove(medkit);
 			}
 		}
 		UpdateUI();
@@ -37,7 +40,7 @@ public class PlayerInventory
 	{
 		if (Inventory.ContainsKey(itemType))
 		{
-			return Inventory[itemType];
+			return Inventory[itemType].Count;
 		}
 		else
 		{
@@ -47,6 +50,5 @@ public class PlayerInventory
 
 	public void UpdateUI()
 	{
-		Debug.Log("Hud ui not connected yet");
 	}
 }
