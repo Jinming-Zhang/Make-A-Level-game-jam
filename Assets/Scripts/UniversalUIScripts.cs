@@ -10,5 +10,6 @@ public class UniversalUIScripts : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volumeExposed", volume);
+        PlayerPrefs.SetFloat("loudness", volume);
     }
 }
