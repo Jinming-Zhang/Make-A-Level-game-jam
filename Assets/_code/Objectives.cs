@@ -77,7 +77,7 @@ public class Objectives : MonoBehaviour
         if (objectiveDone)
         {
             _phase.GetComponent<FixScript>().Deactivate(this);
-            scoreCounter.AddPoint(1);
+            scoreCounter.AddPoint(3);
             ObjectIndex = GenerateIndex();
             if (objectives.Count - 1 >= ObjectIndex)
                 StartCoroutine(DoPhase(ObjectIndex));
