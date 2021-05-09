@@ -4320,7 +4320,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1769312591}
   m_HandleRect: {fileID: 1888591559}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -10
   m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 2
@@ -20823,6 +20823,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6093098223605565284, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093098223605565284, guid: 221dd0a2c792652408de86460bc7ca12, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -23129,7 +23133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 77.617, y: 35}
+  m_AnchoredPosition: {x: 89.4, y: 35}
   m_SizeDelta: {x: 155.2276, y: 22.353195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948977953
@@ -23154,12 +23158,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'WASD to move
 
-    R to reset
-
     E to interact
 
-    SPACE to emergency
-    brake'
+    SPACE to emergency brake'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cea69601e5029614e800b4ae3e47d2d8, type: 2}
   m_sharedMaterial: {fileID: -6842976604209987103, guid: cea69601e5029614e800b4ae3e47d2d8, type: 2}
