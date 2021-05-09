@@ -44,7 +44,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void SetNormalControls(bool normal)
     {
-        playerController.IsInverted = !normal;
+        playerController.IsInverted = normal;
     }
 
 }

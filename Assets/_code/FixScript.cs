@@ -25,31 +25,16 @@ public class FixScript : MonoBehaviour
         isActivated = false;
         screen.SetActive(false);
     }
-    public void onFix(InputAction.CallbackContext value)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(isActivated)
+        if (isActivated)
         {
-            if (value.started)
+            if (collision.gameObject.layer == playerLayer)
             {
-                if(Check())
-                {
-                    isActivated = false;
-                    _objectives.EndPhase();
-                    screen.SetActive(false);
-                }
+                isActivated = false;
+                _objectives.EndPhase();
+                screen.SetActive(false);
             }
         }
-    }
-    private bool Check()
-    {
-        Collider[] _colliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider nearbyObject in _colliders)
-        {
-            if (nearbyObject.gameObject.layer == playerLayer)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }
