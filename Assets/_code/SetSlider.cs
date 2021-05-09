@@ -16,6 +16,11 @@ public class SetSlider : MonoBehaviour
     void Awake()
     {
         float value = PlayerPrefs.GetFloat("loudness");
+        if (value == 0)
+        {
+            value = -5;
+            PlayerPrefs.SetFloat("loudness", value);
+        }
         Debug.Log(value);
         slider.value = value;
     }

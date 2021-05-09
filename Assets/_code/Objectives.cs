@@ -87,6 +87,7 @@ public class Objectives : MonoBehaviour
             if (audioManager != null)
             {
                 audioManager.Play("good");
+                audioManager.Stop("count");
             }
         }
         else
@@ -102,6 +103,7 @@ public class Objectives : MonoBehaviour
             if (audioManager != null)
             {
                 audioManager.Play("bad");
+                audioManager.Stop("count");
             }
         }
     }

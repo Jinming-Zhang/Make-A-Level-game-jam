@@ -11,7 +11,12 @@ public class MainMenuScript : MonoBehaviour
     public float transTime;
     [Scene]
     public int Scene;
+    AudioManager audioManager;
 
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     public void PlayGame()
     {
         StartCoroutine(LoadLevel(Scene));
@@ -26,6 +31,15 @@ public class MainMenuScript : MonoBehaviour
     public void BackToMainMenu()
     {
         Time.timeScale = 1f;
+        if (audioManager != null)
+        {
+            audioManager.Stop("air");
+            audioManager.Stop("mayday");
+            audioManager.Stop("correct");
+            audioManager.Stop("wrong");
+            audioManager.Stop("laser");
+            audioManager.Stop("meteore");
+        }
         StartCoroutine(LoadLevel(0));
     }
 

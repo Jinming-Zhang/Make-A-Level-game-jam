@@ -186,7 +186,7 @@
                     "name": "",
                     "id": "1b31c09f-a137-4865-b013-dfcdd729b5f7",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Hold(duration=2,pressPoint=2)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "stop",
@@ -218,7 +218,7 @@
                 {
                     "name": "",
                     "id": "368fb2e9-bad5-4511-ac64-dea8bad74bba",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
