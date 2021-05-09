@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.InputSystem;
+
 
 public class Objectives : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class Objectives : MonoBehaviour
     [Space(10)]
     public Countdown countDown;
     public ScoreCounter scoreCounter;
+    Transform LaThing;
     [Button("Next")] // Specify button text
     public void Button()
     {
@@ -41,8 +44,9 @@ public class Objectives : MonoBehaviour
     private IEnumerator DoPhase(int index)
     {
         _phase = objectives[index];
+        LaThing = _phase.transform;
         _phase.GetComponent<FixScript>().Activate(this);
-        StartCoroutine(view(_phase.transform));
+        StartCoroutine(view(LaThing));
         StartCoroutine(Timer(GetDistance(_phase)));
         yield return new WaitForSeconds(viewTime / 2);
         if (audioManager != null)
@@ -64,6 +68,18 @@ public class Objectives : MonoBehaviour
         indicator.Target = input;
     }
 
+    public void UseMap(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            cfv.targets.Add(LaThing);
+        }
+        if (value.canceled)
+        {
+            cfv.targets.Remove(LaThing);
+        }
+    }
+
     private IEnumerator Timer(float time)
     {
         countDown.StartTimer(time);
@@ -74,6 +90,7 @@ public class Objectives : MonoBehaviour
     {
         //StopCoroutine(Timer(time));
         StopAllCoroutines();
+        cfv.targets.Remove(LaThing);
         if (objectiveDone)
         {
             _phase.GetComponent<FixScript>().Deactivate(this);

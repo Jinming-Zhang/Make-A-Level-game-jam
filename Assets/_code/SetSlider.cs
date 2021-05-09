@@ -21,7 +21,6 @@ public class SetSlider : MonoBehaviour
             value = -5;
             PlayerPrefs.SetFloat("loudness", value);
         }
-        Debug.Log(value);
         slider.value = value;
     }
 
