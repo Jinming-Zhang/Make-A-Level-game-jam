@@ -139,6 +139,10 @@ public class PlayerController : MonoBehaviour
         if(value.started)
         {
             rb.AddForce(rb.velocity * -1 * 30);
+            if (audioManager != null)
+            {
+                audioManager.Play("stop");
+            }
             StartCoroutine(TurnOffAfterTime(StopEffectIntervall));
         }
     }

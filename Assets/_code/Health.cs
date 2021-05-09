@@ -81,6 +81,7 @@ public class Health : MonoBehaviour
 	}
 	private void Update()
 	{
+		health = Mathf.Clamp(health, 0, maxHealt);
 		if (health <= 0)
 		{
 			if (audioManager != null)

@@ -84,6 +84,10 @@ public class Objectives : MonoBehaviour
             else
                 Debug.LogWarning("ou of range or smg");
             objectiveDone = false;
+            if (audioManager != null)
+            {
+                audioManager.Play("good");
+            }
         }
         else
         {
@@ -95,6 +99,10 @@ public class Objectives : MonoBehaviour
             else
                 Debug.LogWarning("out of range or smg");
             objectiveDone = false;
+            if (audioManager != null)
+            {
+                audioManager.Play("bad");
+            }
         }
     }
     private int GenerateIndex()
